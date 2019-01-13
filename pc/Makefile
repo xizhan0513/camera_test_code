@@ -1,4 +1,4 @@
-SOURCES = sdl.c
+SOURCES = main.c sdl.c net.c
 TARGET = ../output/play.elf
 CC = gcc
 CFLAGS = -Wall

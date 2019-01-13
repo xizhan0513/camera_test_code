@@ -1,7 +1,10 @@
 #ifndef __NET_H__
 #define __NET_H__
 
+#include <arpa/inet.h>
+
 #define LISTEN_NUM 10
+#define BUF_SIZE 1024
 
 struct net_info {
 	int serv_sock;
@@ -12,6 +15,7 @@ struct net_info {
 };
 
 int net_init(char*, char*);
-void send_frame(char*);
+void net_exit();
+int get_frame(char*, int);
 
 #endif
