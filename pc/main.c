@@ -21,10 +21,12 @@ int main(int argc, char *argv[])
 	height = atoi(argv[2]);
 	frame_size = width * height * 3 / 2;
 
-	if (sdl_init(width, height) < 0)
-		goto error;
 	if (net_init(argv[3], argv[4]) < 0)
 		goto error;
+	if (sdl_init(width, height) < 0) {
+		net_exit();
+		goto error;
+	}
 
 	yuv_frame = (char*)malloc(frame_size);
 	if (yuv_frame == NULL) {
