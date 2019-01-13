@@ -18,7 +18,7 @@ int xioctl(int fd, int cmd, void *arg)
 
 	do {
 		ret = ioctl(fd, cmd, arg);
-	} while(ret && retry-- && ((errno == EINTR) || (errno == EAGAIN) || (errno == ETIMEDOUT)));
+	} while (ret && retry-- && ((errno == EINTR) || (errno == EAGAIN) || (errno == ETIMEDOUT)));
 
 	if (ret && (retry <= 0)) {
 		printf("xioctl error\n");
